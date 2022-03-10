@@ -1,8 +1,8 @@
 const dbConfig = require("../config/db.config");
-const Sequelize = require("sequelize ");
+const Sequelize = require("sequelize");
 
 
-db.sequelize.sync();
+
 
 const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
     host :dbConfig.HOST,
@@ -21,6 +21,8 @@ const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
 const db ={}
 db.Sequelize = Sequelize;
 db.sequelize =sequelize;
+
+db.sequelize.sync();
 // adding tutotial fromm model.js
 db.tutorials =require("../models/tutorial")(sequelize,Sequelize);
 module.exports =db;

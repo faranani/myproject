@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const db= require(".app/models")
+const db= require("./app/models/index.js")
  db.sequelize.sync;
 var corsOptions = {
   origin: "http://localhost:8081"
@@ -26,9 +26,9 @@ app.use(express.urlencoded({extended:true}));
 
   // setting port to  listen
 
-  require("./app/routes/turorial.routes")(app);
+  require("./app/routes/tutorial.routes")(app);
 
-  const port = process.env.port  ||8080 ;
+  const port = process.env.port  || 8080 ;
 
   app.listen(port,()=>{
       console.log(` server is runnig on ${port}`);
